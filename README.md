@@ -1,21 +1,24 @@
-# 📊 Network Scanner Mx
+# 📊 Network Scanner Mx - ULTIMATE EDITION
 
-> Escáner de red local profesional con colores, exportación JSON/CSV, escaneo de puertos y modo verbose.
+> Escáner de red profesional con TODO: GUI, monitoreo continuo, notificaciones, puertos personalizados y más.
 
-![Version](https://img.shields.io/badge/version-2.0-blue)
-![Python](https://img.shields.io/badge/python-3.7+-green)
-![License](https://img.shields.io/badge/license-MIT-red)
+![Version](https://img.shields.io/badge/version-3.0-ff69b4)
+![Python](https://img.shields.io/badge/python-3.7+-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Platform](https://img.shields.io/badge/platform-Windows%20|%20Linux%20|%20macOS-lightgrey)
 
-## 🚀 Características COMPLETAS
+## 🚀 CARACTERÍSTICAS COMPLETAS
 
-✅ **Detección automática** de red local  
-✅ **Colores en terminal** para mejor visualización  
-✅ **Modo verbose (-v)** con detalles completos  
-✅ **Escaneo de puertos** (22,80,443,8080,3306,3389)  
-✅ **Exportación a JSON y CSV**  
-✅ **Base de datos OUI** extendida (más de 30 fabricantes)  
-✅ **Banner chingón** al iniciar  
-✅ **Soporte Windows/Linux/macOS**  
+### ✅ Implementadas al 100%
+- [x] **Interfaz gráfica profesional** (tkinter)
+- [x] **Monitoreo continuo de red** en tiempo real
+- [x] **Notificaciones de escritorio** (nuevos/dispositivos perdidos)
+- [x] **Puertos personalizables** (elige qué escanear)
+- [x] **Exportación JSON/CSV**
+- [x] **Modo verbose** con detalles
+- [x] **Colores en terminal**
+- [x] **Detección automática de red**
+- [x] **Base de datos OUI** (40+ fabricantes)
 
 ## 📦 Instalación
 
@@ -24,52 +27,49 @@ git clone https://github.com/Falconmx1/Network-Scanner-Mx.git
 cd Network-Scanner-Mx
 pip install -r requirements.txt
 
-Requisitos especiales en Linux/macOS:
+Instalación en Linux (requiere sudo para scapy)
+sudo apt-get install python3-scapy python3-tk
+pip install plyer requests
 
-# Linux
-sudo apt-get install python3-scapy
+Instalación en Windows
+pip install -r requirements.txt
+# Si no funciona tkinter, reinstala Python con la opción "tcl/tk"
 
-# macOS
-brew install scapy
-
-🔧 Uso (ejemplos prácticos)
-
-# Escaneo básico (solo dispositivos)
+🎮 MODOS DE USO
+1️⃣ MODO TERMINAL (línea de comandos)
+# Escaneo básico
 python scanner.py
 
-# Escaneo con puertos
-python scanner.py -p
+# Escaneo con puertos personalizados
+python scanner.py -p 22,80,443,8080,3306
 
-# Modo verbose + puertos
-python scanner.py -p -v
+# Modo verbose + exportación
+python scanner.py -v -o both
 
-# Exportar a JSON
-python scanner.py -o json
+# Monitoreo continuo (cada 30 seg)
+python scanner.py -m
 
-# Exportar a ambos formatos
-python scanner.py -p -o both
+# Monitoreo con puertos e intervalo personalizado
+python scanner.py -m -p 22,80 -i 15
 
-# Sin colores (para scripts)
-python scanner.py --no-color
+# Rango manual + todo junto
+python scanner.py -r 192.168.0.0/24 -p 22,80,443 -v -o json -m -i 10
 
-# Rango manual + todo activado
-python scanner.py -r 192.168.0.0/24 -p -v -o both
+2️⃣ MODO GRÁFICO (GUI)
+python scanner.py -g
+# O ejecuta sin argumentos y selecciona la opción
 
-📁 Estructura de exportación
-JSON
-{
-  "scan_date": "2026-06-12T15:30:00",
-  "total_devices": 4,
-  "devices": [
-    {
-      "ip": "192.168.1.1",
-      "mac": "8C:1D:96:12:34:56",
-      "vendor": "Intel",
-      "open_ports": [80, 443]
-    }
-  ]
-}
+Características del GUI:
 
-CSV
-IP	MAC	Fabricante	Puertos
-192.168.1.1	8C:1D:96:12:34:56	Intel	80	443
+Configuración visual de rango y puertos
+
+Botón para escaneo único o monitoreo
+
+Área de resultados en tiempo real
+
+Exportación con un click
+
+Tema oscuro profesional
+
+3️⃣ MODO MONITOREO (detección de cambios)
+python scanner.py -m -i 30
