@@ -1,2 +1,5 @@
 scapy==2.5.0
 colorama==0.4.6
+plyer==2.1
+requests==2.31.0
+win10toast==0.9  # Solo para Windows
